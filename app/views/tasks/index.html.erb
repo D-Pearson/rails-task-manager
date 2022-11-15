@@ -1,0 +1,10 @@
+<h1>My tasks</h1>
+<ul class="list-group" >
+  <% @tasks.each do |task| %>
+  <li class="list-group-item"><%= link_to task.title, task_path(task) %></li>
+  <li class="list-group-item"><%= task.completed %></li>
+  <li class="list-group-item"><%= link_to 'Delete', task_path(task), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'add', new_task_path %>
